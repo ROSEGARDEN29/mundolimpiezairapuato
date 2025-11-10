@@ -268,13 +268,60 @@
         }
         
         .tagline {
-            font-size: 1.6rem;
-            color: #0088cc;
-            font-weight: 700;
-            margin-top: 15px;
-            font-family: 'Georgia', serif;
-            letter-spacing: 0.5px;
+			font-size: 1.6rem;
+			color: #0088cc;
+			font-weight: 700;
+			margin-top: 15px;
+			margin-bottom: 0;
+			font-family: 'Georgia', serif;
+			letter-spacing: 0.5px;
+		}
+        
+        /* Banner brillante */
+			.banner-container {
+			width: 100%;
+			max-width: 100%;
+			margin: 0;
+			padding: 10px 0;
+			position: relative;
+			overflow: hidden;
+		}
+        
+        .banner-container img {
+			width: 100%;
+			height: auto;
+			display: block;
+			border-radius: 0;
+			box-shadow: none;
+		}
+        
+        .banner-shine {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.3), 
+                rgba(255, 255, 255, 0.6), 
+                rgba(255, 255, 255, 0.3), 
+                transparent);
+            transform: skewX(-25deg);
+            animation: shine 4s infinite;
         }
+        
+        @keyframes shine {
+			0% {
+				left: -100%;
+			}
+			50% {
+				left: 100%;
+			}
+			100% {
+				left: 100%;
+			}
+		}
         
         nav {
             background: linear-gradient(135deg, #0066cc, #0099ff, #00bbff);
@@ -464,31 +511,32 @@
         }
         
         .price-table td:nth-child(2),
-        .price-table td:nth-child(3) {
-            text-align: center;
-            font-weight: 700;
-            color: #00c8ff;
-            font-size: 1.1rem;
-        }
-        
-        .price-table td:nth-child(4) {
-            text-align: center;
-            font-weight: 700;
-            color: #6699bb;
-            font-size: 1.1rem;
-        }
+		.price-table td:nth-child(3) {
+			text-align: center;
+			font-weight: 700;
+			color: #00c8ff;
+			font-size: 1.25rem;
+		}
+
+		.price-table td:nth-child(4) {
+			text-align: center;
+			font-weight: 700;
+			color: #6699bb;
+			font-size: 1.25rem;
+		}
         
         .product-name {
-            font-weight: 700;
-            color: #333;
-        }
-        
-        .product-variants {
-            font-size: 0.9rem;
-            font-style: italic;
-            margin-top: 5px;
-            display: block;
-        }
+			font-weight: 700;
+			color: #333;
+			font-size: 1.2rem;
+		}
+
+		.product-variants {
+			font-size: 1rem;
+			font-style: italic;
+			margin-top: 5px;
+			display: block;
+		}
         
         .aroma-mar { color: #0066cc; font-weight: 700; }
         .aroma-lavanda { color: #9966cc; font-weight: 700; }
@@ -501,6 +549,17 @@
         .aroma-azul { color: #0066ff; font-weight: 700; }
         .aroma-morado { color: #9933cc; font-weight: 700; }
         .aroma-verde { color: #00cc33; font-weight: 700; }
+        
+        .warning-note {
+			background: #ccff00;
+			border: 2px solid #99cc00;
+			padding: 15px 20px;
+			border-radius: 10px;
+			margin: 20px 0;
+			font-weight: 600;
+			color: #333;
+			box-shadow: 0 4px 15px rgba(204, 255, 0, 0.5);
+		}
         
         footer {
             background: linear-gradient(135deg, rgba(0, 200, 255, 0.1), rgba(255, 255, 255, 0.95));
@@ -615,26 +674,32 @@
             <div class="sparkle sparkle-3"></div>
         </div>
         <h1 class="tagline">Venta de Productos de Limpieza a Granel en Irapuato</h1>
-    </header>
-    
-    <nav>
-        <ul class="nav-links">
-            <li><a href="#uso-personal">Uso Personal</a></li>
-            <li><a href="#vendedores">Vendedores</a></li>
-            <li><a href="#envios">Envíos</a></li>
-            <li><a href="#acerca">Acerca de</a></li>
-        </ul>
-    </nav>
+		</header>
+
+		<nav>
+			<ul class="nav-links">
+				<li><a href="#uso-personal">Uso Personal</a></li>
+				<li><a href="#vendedores">Vendedores</a></li>
+				<li><a href="#envios">Envíos</a></li>
+				<li><a href="#acerca">Acerca de</a></li>
+			</ul>
+		</nav>
+
+		<!-- Banner brillante -->
+		<div class="banner-container">
+			<img src="banner_mundolimpieza.png" alt="Mundo Limpieza - Productos de calidad premium" loading="lazy">
+			<div class="banner-shine"></div>
+		</div>
     
     <div class="container">
         <section>
             <div class="glass-card">
                 <h2>Productos de Limpieza a Granel en Irapuato, Guanajuato</h2>
-                <p>En <strong>Mundo Limpieza</strong> somos fabricantes locales especializados en <strong>venta de productos de limpieza a granel en Irapuato, Guanajuato</strong>. Ofrecemos cloro, detergentes, desengrasante, limpiadores multiusos y productos para limpieza de casas. Precios directos de fábrica con servicio a Salamanca, Celaya, Silao, Romita, Abasolo y Cuerámaro.</p>
+                <p>En <strong>Mundo Limpieza</strong> somos fabricantes locales especializados en <strong>venta de productos de limpieza a granel en Irapuato, Guanajuato</strong>. Ofrecemos cloro, detergentes, desengrasante, limpiadores multiusos y productos para limpieza de casas. Precios directos de fábrica.</p>
                 
                 <div class="destacado">
                     <h3>✨ Calidad Premium Garantizada</h3>
-                    <p><strong>Todos nuestros productos son <strong>100% efectivos</strong> y de primera calidad.</strong> Fabricados con las mejores materias primas para asegurar resultados superiores en cada aplicación.</p>
+                    <p><strong>Todos nuestros productos son<strong>100% efectivos</strong> y de primera calidad.</strong> Fabricados con las mejores materias primas para asegurar resultados superiores en cada aplicación.</p>
                     
                     <ul>
                         <li>✓ <strong>Calidad garantizada 100%</strong> - Efectividad comprobada en cada producto</li>
@@ -735,7 +800,7 @@
                             <td>$14.7</td>
                         </tr>
                         <tr>
-                            <td><span class="product-name">DETERGENTE COLOR</span></td>
+                            <td><span class="product-name">DETERGENTE ROPA COLOR</span></td>
                             <td>$18.0</td>
                             <td>$16.2</td>
                             <td>$14.7</td>
@@ -773,7 +838,7 @@
                         <tr>
                             <td>
                                 <span class="product-name">SUAVIZANTE DE TELAS</span>
-                                <span class="product-variants">(<span class="aroma-azul">Downy</span>, <span class="aroma-morado">Ensueño</span>, <span class="aroma-verde">Suave Luna</span> y <span class="aroma-verde">Primavera</span>)</span>
+                                <span class="product-variants">(<span class="aroma-azul">Azul</span>, <span class="aroma-morado">Morado</span> y <span class="aroma-verde">Verde</span>)</span>
                             </td>
                             <td>$15.0</td>
                             <td>$13.5</td>
@@ -943,7 +1008,7 @@
                             <td>$18 a $22</td>
                         </tr>
                         <tr>
-                            <td><span class="product-name">DETERGENTE COLOR</span></td>
+                            <td><span class="product-name">DETERGENTE ROPA COLOR</span></td>
                             <td>$12.5</td>
                             <td>$18 a $22</td>
                         </tr>
@@ -1012,13 +1077,13 @@
                         </tr>
                         <tr>
                             <td><span class="product-name">PERFUMOL</span></td>
-                            <td>$8.0</td>
-                            <td>$12.00</td>
+                            <td>$32.0</td>
+                            <td>$40 a $50</td>
                         </tr>
                         <tr>
                             <td><span class="product-name">ÁCIDO MURIÁTICO</span></td>
-                            <td>$18.0</td>
-                            <td>$22 a $30</td>
+                            <td>$19.0</td>
+                            <td>$25 a $30</td>
                         </tr>
                         <tr>
                             <td><span class="product-name">CREOLINA</span></td>
@@ -1046,20 +1111,25 @@
         </section>
         
         <section id="envios">
-             <h2>Envíos y Entregas en Irapuato</h2>
+            <div class="glass-card">
+                <h2>Envíos y Entregas en Irapuato</h2>
                 <p>Facilitamos la entrega de tus <strong>productos de limpieza a granel en Irapuato</strong>. Contáctanos para coordinar tu pedido.</p>
                 <h3>Modalidades de Entrega:</h3>
                 <p>🚚 <strong>Entrega a domicilio SIN COSTO en Irapuato</strong> - Exclusivamente dentro de la ciudad de Irapuato<br>
-                🏪 <strong>Recolección en nuestro punto de venta</strong> - Clientes de Salamanca, Celaya, Silao, Romita, Abasolo y Cuerámaro pueden venir a recoger sus productos directamente en Irapuato</p>
-                <p><em>Nota: Las entregas a domicilio sin costo aplican únicamente en Irapuato. Para otras ciudades, favor de recoger en nuestra ubicación.</em></p>
+                🪴 <strong>Recolección en nuestro punto de venta en Irapuato</strong> - Clientes de Salamanca, Celaya, Silao, Romita, Abasolo y Cuerámaro pueden venir a recoger sus productos directamente en Irapuato</p>
+                <p class="warning-note"><em>Nota: Las entregas a domicilio sin costo aplican únicamente en Irapuato. Para otras ciudades, favor de recoger en nuestra ubicación.</em></p>
                 <p><em>Contáctanos por WhatsApp al 462-125-2835 para más información sobre entregas y disponibilidad de productos.</em></p>
+                
+                <div style="margin: 30px 0; text-align: center;">
+                    <img src="image_01.png" alt="Mundo Limpieza Irapuato" style="max-width: 100%; height: auto; border-radius: 15px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);">
+                </div>
             </div>
         </section>
         
         <section id="acerca">
             <div class="glass-card">
                 <h2>Acerca de Mundo Limpieza - Fabricantes en Irapuato</h2>
-                <p>Somos <strong>fabricantes locales especializados en productos de limpieza a granel en Irapuato, Guanajuato</strong>. Nuestra misión es proporcionar soluciones de limpieza de alta calidad a precios competitivos para uso personal y comercial. Servimos principalmente a Irapuato con entregas a domicilio sin costo. También atendemos a clientes de Salamanca, Celaya, Silao, Romita, Abasolo y Cuerámaro que deseen recoger sus productos en nuestro punto de venta en Irapuato.</p>
+                <p>Somos <strong>fabricantes locales especializados en productos de limpieza a granel en Irapuato, Guanajuato</strong>. Nuestra misión es proporcionar soluciones de limpieza de alta calidad a precios competitivos para uso personal y comercial. Servimos principalmente a Irapuato con entregas a domicilio sin costo.</p>
                 
                 <h3>¿Por Qué Elegirnos?</h3>
                 <p>🏆 <strong>Calidad Premium Certificada</strong> - Todos nuestros productos pasan rigurosos controles de calidad<br>
@@ -1072,7 +1142,7 @@
                 <div class="destacado">
                     <h3>📍 Ubicación</h3>
                     <p><strong>Irapuato, Guanajuato, México</strong></p>
-                    <p>Servimos a toda la ciudad de Irapuato con entregas a domicilio sin costo. Clientes de Salamanca, Celaya, Silao, Romita, Abasolo y Cuerámaro son bienvenidos a recoger sus productos en nuestro punto de venta en Irapuato.</p>
+                    <p>Servimos a toda la ciudad de Irapuato con <strong>entregas a domicilio sin costo</strong>. Clientes de Salamanca, Celaya, Silao, Romita, Abasolo y Cuerámaro son bienvenidos a recoger sus productos en nuestro punto de venta en Irapuato.</p>
                 </div>
             </div>
         </section>
@@ -1103,7 +1173,7 @@
             
             <p style="margin-top: 30px; color: #666;">
                 <strong>Mundo Limpieza Irapuato</strong> - Fabricantes locales de productos de limpieza a granel<br>
-                📍 Irapuato, Guanajuato | Servicio a Salamanca, Celaya, Silao, Romita, Abasolo, Cuerámaro<br>
+                📍 Irapuato, Guanajuato<br>
                 Calidad Premium | 100% Efectivo | Precios de Fábrica | ☎️ 4621252835
             </p>
         </div>
