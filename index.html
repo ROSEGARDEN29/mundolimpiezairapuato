@@ -603,9 +603,20 @@
             margin: 2rem 0 1rem;
             text-align: center;
         }
-        .catalogo-wrap img {
+        /* Clientes: 1684×1684px cuadrada — se adapta al ancho del contenedor */
+        .catalogo-wrap.clientes img {
             width: 100%;
-            max-width: 900px;
+            max-width: 780px;
+            height: auto;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            display: block;
+            margin: 0 auto;
+        }
+        /* Vendedor: 532×1035px — más estrecho y alto, se mantiene contenido */
+        .catalogo-wrap.vendedor img {
+            width: 100%;
+            max-width: 532px;
             height: auto;
             border-radius: var(--radius-lg);
             box-shadow: var(--shadow-md);
@@ -1009,11 +1020,11 @@
             </div>
 
             <!-- Catálogo imagen -->
-            <div class="catalogo-wrap">
+            <div class="catalogo-wrap clientes">
                 <img
-                    src="Catálogo Clientes.jpg"
+                    src="catálogo_clientes_web.jpg"
                     alt="Catálogo de precios para clientes — menudeo y mayoreo de productos de limpieza en Irapuato"
-                    width="900" height="auto"
+                    width="1684" height="1684"
                     loading="lazy"
                 >
                 <p class="catalogo-note">Precios por litro en menudeo, mayoreo 5 lts y mayoreo 20 lts · vigentes en Irapuato</p>
@@ -1041,11 +1052,11 @@
             </p>
 
             <!-- Catálogo imagen vendedor -->
-            <div class="catalogo-wrap">
+            <div class="catalogo-wrap vendedor">
                 <img
                     src="Catálogo Vendedor.jpg"
                     alt="Catálogo de precios para vendedores y distribuidores de productos de limpieza en Irapuato"
-                    width="900" height="auto"
+                    width="532" height="1035"
                     loading="lazy"
                 >
                 <p class="catalogo-note">Precio por litro al mayoreo · precio sugerido de venta al público · Irapuato, Guanajuato</p>
