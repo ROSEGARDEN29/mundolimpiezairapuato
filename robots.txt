@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Sitemap: https://rosegarden29.github.io/mundolimpiezairapuato/sitemap.xml
+Sitemap: https://mundolimpiezairapuato.com/sitemap.xml
 
 User-agent: Googlebot
 Allow: /
