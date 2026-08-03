@@ -7,17 +7,20 @@
     <!-- ═══════════════════════════════════════════════
          TÍTULO: keyword principal + marca + localidad
          Optimizado con datos de Search Console:
-         "productos de limpieza irapuato" (124 imp / 3 clics)
-         "productos de limpieza en irapuato" (21 imp / 0 clics)
+         "productos de limpieza irapuato" (107 imp / 3 clics — top query)
+         Ajuste: se agregó "Precios" para captar
+         "lista de precios de productos de limpieza a granel" (34 imp / 0 clics)
     ════════════════════════════════════════════════ -->
-    <title>Productos de Limpieza a Granel en Irapuato — Entrega Gratis | Mundo Limpieza</title>
+    <title>Productos de Limpieza a Granel en Irapuato — Precios y Entrega Gratis | Mundo Limpieza</title>
 
     <!-- META DESCRIPTION: directo, con diferenciador y CTA.
-         Captura "cerca de mí", "a granel", "irapuato", "mayoreo" -->
-    <meta name="description" content="✅ Fabricantes locales de productos de limpieza a granel en Irapuato. Cloro, detergentes, multiusos y más — precios de fábrica sin intermediarios. Entrega GRATIS a domicilio. Menudeo y mayoreo. ¡Escríbenos hoy!">
+         Captura "cerca de mí" (33+31 imp / 0 clics) y "lista de precios" (34 imp / 0 clics) -->
+    <meta name="description" content="✅ Fabricantes de productos de limpieza a granel cerca de ti en Irapuato. Cloro, detergentes, multiusos y más. Lista de precios, menudeo y mayoreo. Entrega GRATIS. ¡Escríbenos hoy!">
 
-    <!-- KEYWORDS: pocas, precisas, reales — sin relleno -->
-    <meta name="keywords" content="productos de limpieza irapuato, productos de limpieza a granel irapuato, fabricantes productos limpieza irapuato, venta mayoreo productos limpieza irapuato, cloro irapuato, detergentes irapuato">
+    <!-- KEYWORDS: pocas, precisas, reales — sin relleno.
+         Nota: esta etiqueta no afecta el ranking en Google (la ignora desde 2009),
+         se mantiene solo por compatibilidad/documentación. -->
+    <meta name="keywords" content="productos de limpieza irapuato, productos de limpieza a granel irapuato, fabricantes productos limpieza irapuato, venta mayoreo productos limpieza irapuato, cloro irapuato, detergentes irapuato, evol irapuato">
 
     <!-- PWA -->
     <meta name="theme-color" content="#0055b3">
@@ -172,6 +175,14 @@
                     "@type": "Answer",
                     "text": "La entrega a domicilio dentro de Irapuato es completamente sin costo. Solo aplica dentro de la ciudad."
                 }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Qué pasa si no tengo garrafas?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No hay problema. Puedes adquirir una garrafa nueva de 20 litros con nosotros por $32, o bien traer tus propios envases vacíos para reutilizarlos, siempre y cuando no hayan contenido previamente aceite o gasolina, para garantizar la calidad e higiene del producto."
+                }
             }
         ]
     }
@@ -215,14 +226,14 @@
             --text-400: #64748b;
             --green-500: #16a34a;
             --green-100: #dcfce7;
-            --shadow-xs: 0 1px 3px rgba(0,0,0,0.06);
-            --shadow-sm: 0 2px 8px rgba(0,85,179,0.08);
-            --shadow-md: 0 6px 20px rgba(0,85,179,0.12);
-            --shadow-lg: 0 12px 40px rgba(0,85,179,0.16);
-            --radius-sm: 8px;
-            --radius-md: 12px;
-            --radius-lg: 16px;
-            --radius-xl: 20px;
+            --shadow-xs: 0 2px 6px rgba(0,0,0,0.055);
+            --shadow-sm: 0 3px 12px rgba(0,85,179,0.09);
+            --shadow-md: 0 8px 26px rgba(0,85,179,0.13);
+            --shadow-lg: 0 16px 46px rgba(0,85,179,0.17);
+            --radius-sm: 10px;
+            --radius-md: 14px;
+            --radius-lg: 18px;
+            --radius-xl: 24px;
         }
 
         html { scroll-behavior: smooth; }
@@ -259,11 +270,15 @@
         @keyframes rise { to { bottom: 110%; transform: rotate(180deg); } }
         @media(max-width:768px){ .bubble:nth-child(n+4){display:none;} }
 
-        /* ── HEADER ─────────────────────────────── */
-        header {
+        /* ── BARRA SUPERIOR (header + nav como un solo bloque fijo) ── */
+        .site-topbar {
             position: sticky;
             top: 0;
             z-index: 1000;
+        }
+
+        /* ── HEADER ─────────────────────────────── */
+        header {
             background: rgba(255,255,255,0.97);
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
@@ -307,6 +322,8 @@
         }
 
         .btn-wa-header {
+            position: relative;
+            overflow: hidden;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
@@ -318,48 +335,101 @@
             font-weight: 600;
             font-size: 0.9rem;
             box-shadow: 0 2px 10px rgba(37,211,102,0.28);
-            transition: all 0.25s ease;
+            transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
             white-space: nowrap;
         }
+        .btn-wa-header svg,
+        .btn-wa-header span {
+            position: relative;
+            z-index: 2;
+        }
+        /* Destello diagonal, igual al del menú de navegación */
+        .btn-wa-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -60%;
+            width: 45%;
+            height: 100%;
+            background: linear-gradient(115deg, transparent, rgba(255,255,255,0.8), transparent);
+            transform: skewX(-20deg);
+            z-index: 1;
+            transition: left 0.65s ease;
+        }
         .btn-wa-header:hover {
-            background: #1ebe5d;
+            background: linear-gradient(145deg, #2fe374 0%, #1ebe5d 55%, #17a34f 100%);
             transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(37,211,102,0.38);
+            box-shadow:
+                0 6px 18px rgba(37,211,102,0.4),
+                inset 0 1px 0 rgba(255,255,255,0.5),
+                inset 0 -2px 4px rgba(0,60,25,0.2);
+        }
+        .btn-wa-header:hover::before {
+            left: 130%;
         }
 
         /* ── NAV ─────────────────────────────────── */
         nav {
-            background: #e1f0fc;
-            border-bottom: 1px solid #b8d9f5;
-            position: sticky;
-            top: 82px;
-            z-index: 999;
-            box-shadow: 0 2px 8px rgba(0,102,204,0.07);
+            background: rgba(225,240,252,0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(184,217,245,0.65);
+            box-shadow: 0 2px 8px rgba(0,102,204,0.06);
         }
         nav ul {
             list-style: none;
             display: flex;
             justify-content: center;
+            align-items: center;
             flex-wrap: wrap;
-            gap: 0.375rem;
+            gap: 1.25rem;
             max-width: 1280px;
             margin: 0 auto;
             padding: 1rem 2rem;
         }
         nav a {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            overflow: hidden;
             color: var(--blue-800);
             text-decoration: none;
             padding: 0.75rem 1.5rem;
             border-radius: var(--radius-sm);
             font-weight: 700;
             font-size: 0.975rem;
+            line-height: 1;
             letter-spacing: 0.01em;
-            transition: all 0.2s ease;
+            transition: color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+        }
+        nav a .nav-label {
+            position: relative;
+            z-index: 2;
+        }
+        /* Destello diagonal que cruza el botón al pasar el cursor */
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -60%;
+            width: 45%;
+            height: 100%;
+            background: linear-gradient(115deg, transparent, rgba(255,255,255,0.75), transparent);
+            transform: skewX(-20deg);
+            z-index: 1;
+            transition: left 0.65s ease;
         }
         nav a:hover {
             color: #fff;
-            background: var(--blue-700);
-            box-shadow: 0 3px 10px rgba(0,85,179,0.18);
+            background: linear-gradient(145deg, #1e90f0 0%, #0064c9 55%, #004d9e 100%);
+            box-shadow:
+                0 6px 18px rgba(0,101,201,0.4),
+                inset 0 1px 0 rgba(255,255,255,0.55),
+                inset 0 -2px 4px rgba(0,30,70,0.25);
+            transform: translateY(-2px);
+        }
+        nav a:hover::before {
+            left: 130%;
         }
 
         /* ── HERO ────────────────────────────────── */
@@ -625,8 +695,9 @@
         }
         .catalogo-note {
             margin-top: 1rem;
-            font-size: 0.875rem;
-            color: var(--text-400);
+            font-size: 1rem;
+            color: var(--blue-900);
+            font-weight: 600;
             font-style: italic;
         }
 
@@ -857,8 +928,7 @@
             .logo-svg { width: 44px; height: 44px; }
             .logo-text-wrap h1 { font-size: 1.1rem; }
             .btn-wa-header { padding: 0.6875rem 1rem; font-size: 0.825rem; }
-            nav { top: 72px; }
-            nav ul { padding: 0.625rem 1rem; gap: 0.2rem; }
+            nav ul { padding: 0.625rem 1rem; gap: 0.5rem; }
             nav a { padding: 0.5rem 0.875rem; font-size: 0.825rem; }
             .hero { padding: 3rem 1.25rem 4rem; }
             .hero-ctas { flex-direction: column; }
@@ -898,6 +968,7 @@
 <!-- ═══════════════════════════════════════
      HEADER
 ════════════════════════════════════════ -->
+<div class="site-topbar">
 <header id="header">
     <div class="header-inner">
         <a href="#" class="logo-wrap" aria-label="Mundo Limpieza — Inicio">
@@ -936,13 +1007,14 @@
 ════════════════════════════════════════ -->
 <nav aria-label="Navegación principal">
     <ul>
-        <li><a href="#uso-personal">Uso Personal</a></li>
-        <li><a href="#vendedores">Vendedores</a></li>
-        <li><a href="#productos">Productos</a></li>
-        <li><a href="#envios">Envíos</a></li>
-        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#uso-personal"><span class="nav-label">Uso Personal</span></a></li>
+        <li><a href="#vendedores"><span class="nav-label">Vendedores</span></a></li>
+        <li><a href="#productos"><span class="nav-label">Productos</span></a></li>
+        <li><a href="#envios"><span class="nav-label">Envíos</span></a></li>
+        <li><a href="#nosotros"><span class="nav-label">Nosotros</span></a></li>
     </ul>
 </nav>
+</div><!-- /site-topbar -->
 
 <!-- ═══════════════════════════════════════
      HERO
@@ -961,7 +1033,7 @@
         </h2>
 
         <p class="hero-sub">
-            Somos fabricantes locales con entrega a domicilio <strong>sin costo</strong> en Irapuato.
+            Somos fabricantes locales cerca de ti, con entrega a domicilio <strong>sin costo</strong> en Irapuato.
             Cloro, detergentes, multiusos, desengrasante y más — menudeo, mayoreo y precios para vendedores.
         </p>
 
@@ -1009,7 +1081,7 @@
             <p class="section-label">Clientes particulares y negocios</p>
             <h2 id="uso-personal-h2">Catálogo de Precios — Uso Personal, Menudeo y Mayoreo</h2>
             <p>
-                Compra directamente del fabricante en Irapuato y ahorra sin intermediarios.
+                Consulta nuestra lista de precios y compra directamente del fabricante en Irapuato, sin intermediarios.
                 Disponible en litros sueltos, por 5 litros o por bidón de 20 litros.
                 Ideal para limpieza de casas, negocios y uso cotidiano.
             </p>
@@ -1153,7 +1225,7 @@
                 <div class="delivery-card primary">
                     <div class="big-icon" aria-hidden="true">🚚</div>
                     <h3>Entrega a domicilio — SIN COSTO</h3>
-                    <p>Exclusivamente dentro de la ciudad de Irapuato, Guanajuato. Sin costo adicional en tu pedido.</p>
+                    <p>Exclusivamente dentro de la ciudad de Irapuato, Guanajuato. Sin costo adicional en tu pedido. Solo se requiere un pedido mínimo de cierta cantidad dependiendo la zona.</p>
                 </div>
                 <div class="delivery-card secondary">
                     <div class="big-icon" aria-hidden="true">📍</div>
@@ -1242,6 +1314,10 @@
                     <summary>¿Cuánto cuesta el envío?</summary>
                     <div class="faq-answer">La entrega dentro de Irapuato es completamente sin costo. Solo aplica para domicilios dentro de la ciudad de Irapuato. Y se requiere sea un pedido mínimo de cierta cantidad dependiendo la zona o colonia.</div>
                 </details>
+                <details>
+                    <summary>¿Qué pasa si no tengo garrafas?</summary>
+                    <div class="faq-answer">No hay problema. Puedes adquirir una garrafa nueva de 20 litros con nosotros por $32, o bien traer tus propios envases vacíos para reutilizarlos, siempre y cuando no hayan contenido previamente aceite o gasolina, para garantizar la calidad e higiene del producto.</div>
+                </details>
             </div>
         </div>
     </section>
@@ -1294,6 +1370,9 @@
             📍 Irapuato, Guanajuato, México · Entrega sin costo en Irapuato<br>
             Calidad Premium · Precios de Fábrica · Menudeo y Mayoreo
         </div>
+        <p style="text-align:center;margin-top:1.5rem;font-size:0.8rem;color:rgba(255,255,255,0.45);">
+            © 2026 Mundo Limpieza Irapuato. Todos los derechos reservados.
+        </p>
     </div>
 </footer>
 
